@@ -65,7 +65,10 @@
 //PanGesture Variables
 @property (nonatomic, assign) BOOL panGestureEnabled;
 //@property (nonatomic, assign) BOOL swipeGestureEnabled;
-@property (nonatomic, assign) BOOL tapGestureEnabled;
+
+//Current Menu Status (Open/Close)
+@property (nonatomic, assign, readwrite) APMultiMenuStatus leftMenuStatus;
+@property (nonatomic, assign, readwrite) APMultiMenuStatus rightMenuStatus;
 
 //Initializations
 - (instancetype)init;
