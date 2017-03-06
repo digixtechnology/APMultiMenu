@@ -806,16 +806,18 @@
 - (void)handlePanGesture:(UIPanGestureRecognizer *)recognizer {
     CGPoint velocity = [recognizer velocityInView:recognizer.view];
     
+    NSLog(@"UIGestureRecognizerState: %@ velocity: %f", @(recognizer.state), velocity.x);
+    
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         // _rightMenu.frame = [self getMenuFrameForTransition:APMultiMenuTransitionResetFromLeft];
         if (velocity.x > 0) {
             if (_rightMenuStatus == APMultiMenuStatusClose)
                 [self.view sendSubviewToBack:_rightMenu];
-        } else if(velocity.x == 0){
-            // do nothing
-        } else {
+        } else if(velocity.x < 0){
             if (_leftMenuStatus == APMultiMenuStatusClose)
                 [self.view sendSubviewToBack:_leftMenu];
+        } else {
+            return;
         }
         
         [self.view endEditing:YES];
