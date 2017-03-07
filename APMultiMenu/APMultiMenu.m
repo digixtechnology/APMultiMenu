@@ -806,8 +806,6 @@
 - (void)handlePanGesture:(UIPanGestureRecognizer *)recognizer {
     CGPoint velocity = [recognizer velocityInView:recognizer.view];
     
-    NSLog(@"UIGestureRecognizerState: %@ velocity: %f", @(recognizer.state), velocity.x);
-    
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         // _rightMenu.frame = [self getMenuFrameForTransition:APMultiMenuTransitionResetFromLeft];
         if (velocity.x > 0) {
