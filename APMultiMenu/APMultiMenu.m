@@ -147,6 +147,8 @@
 #pragma mark - Constructors
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+          
     if (self.mainViewControllerStoryboardID)
         self.mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.mainViewControllerStoryboardID];
     
